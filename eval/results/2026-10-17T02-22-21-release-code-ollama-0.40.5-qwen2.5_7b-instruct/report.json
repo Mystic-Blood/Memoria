@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "label": "release-code-ollama-0.40.5",
+    "engine": "v2",
+    "date": "2026-10-17T02:22:21.096Z",
+    "git": "922986d (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "ollama version is 0.40.5",
+    "set": "dev",
+    "cases": 2
+  },
+  "results": [
+    {
+      "id": "long-01",
+      "category": "long_messy",
+      "description": "Rambling paragraph with one durable fact",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is allergic to dairy",
+          "pass": true,
+          "evidence": [
+            "User is allergic to dairy."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User spilled coffee",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User missed the bus",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User walked in the rain",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is allergic to dairy.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "man today was so crazy. i woke up late, spilled coffee on my shirt, missed the bus. oh and i finally decided that i'm allergic to dairy, got tested yesterday. anyway, then i had to walk in the rain.",
+          "lines": [
+            "\"User is allergic to dairy.\" -> add as fact (No related memory exists yet.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        4492
+      ]
+    },
+    {
+      "id": "conv-pronoun-01",
+      "category": "conversation",
+      "description": "Details about \"it\" spread over turns",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User owns a Royal Enfield Classic 350",
+          "pass": true,
+          "evidence": [
+            "User got a new Royal Enfield Classic 350, matte black bike."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User rides the bike to work every day",
+          "pass": true,
+          "evidence": [
+            "User rides their bike to work every day."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User rides it to work (unresolved \"it\")",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User got a new bike last week.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User got a new Royal Enfield Classic 350, matte black bike.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User rides their bike to work every day.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "got a new bike last week",
+          "lines": [
+            "\"User got a new bike last week.\" -> add as fact (No related memory exists yet.)"
+          ]
+        },
+        {
+          "turn": "royal enfield classic 350, matte black",
+          "lines": [
+            "\"User got a new Royal Enfield Classic 350, matte black bike.\" -> add as fact (Stored as a separate memory.) [guard: model chose \"update\" against a memory that is not similar enough (0.74 < 0.8)]"
+          ]
+        },
+        {
+          "turn": "yeah i ride it to work every day",
+          "lines": [
+            "\"User rides their bike to work every day.\" -> add as fact (Stored as a separate memory.) [guard: model chose \"update\" against a memory that is not similar enough (0.76 < 0.8)]"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3083,
+        5457,
+        5285
+      ]
+    }
+  ]
+}

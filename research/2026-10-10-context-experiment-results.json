@@ -1,0 +1,1503 @@
+[
+  {
+    "variant": "A",
+    "caseId": 1,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "I love pizza.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "pizza",
+        "confidence_score": 0.75,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "pizza",
+        "confidence_score": 0.75,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 11856
+  },
+  {
+    "variant": "B",
+    "caseId": 1,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I love pizza.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3193
+  },
+  {
+    "variant": "C",
+    "caseId": 1,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I love pizza.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2881
+  },
+  {
+    "variant": "D",
+    "caseId": 1,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I love pizza.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User loves pizza",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2825
+  },
+  {
+    "variant": "E",
+    "caseId": 1,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I love pizza.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User loves pizza",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves pizza",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2818
+  },
+  {
+    "variant": "A",
+    "caseId": 2,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "I'm a software engineer, I live in Boston, and I love hiking.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "software engineer",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "software engineer",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3727
+  },
+  {
+    "variant": "B",
+    "caseId": 2,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I'm a software engineer, I live in Boston, and I love hiking.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3341
+  },
+  {
+    "variant": "C",
+    "caseId": 2,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I'm a software engineer, I live in Boston, and I love hiking.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3316
+  },
+  {
+    "variant": "D",
+    "caseId": 2,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I'm a software engineer, I live in Boston, and I love hiking.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User is a software engineer",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        },
+        {
+          "type": "state",
+          "content": "User lives in Boston",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        },
+        {
+          "type": "state",
+          "content": "User loves hiking",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      },
+      {
+        "type": "state",
+        "content": "User lives in Boston",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      },
+      {
+        "type": "state",
+        "content": "User loves hiking",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 6580
+  },
+  {
+    "variant": "E",
+    "caseId": 2,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I'm a software engineer, I live in Boston, and I love hiking.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User is a software engineer",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        },
+        {
+          "type": "state",
+          "content": "User lives in Boston",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        },
+        {
+          "type": "state",
+          "content": "User loves hiking",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User is a software engineer",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      },
+      {
+        "type": "state",
+        "content": "User lives in Boston",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      },
+      {
+        "type": "state",
+        "content": "User loves hiking",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 5940
+  },
+  {
+    "variant": "A",
+    "caseId": 3,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "i luv bannana nd appl",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "banana",
+        "confidence_score": 0.8,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "banana",
+        "confidence_score": 0.8,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3016
+  },
+  {
+    "variant": "B",
+    "caseId": 3,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "i luv bannana nd appl",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User loves bananas and apples",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves bananas and apples",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3211
+  },
+  {
+    "variant": "C",
+    "caseId": 3,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "i luv bannana nd appl",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "User loves bananas and apples",
+        "confidence_score": 0.99,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User loves bananas and apples",
+        "confidence_score": 0.99,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3166
+  },
+  {
+    "variant": "D",
+    "caseId": 3,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "i luv bannana nd appl",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "entity",
+          "content": "User loves bananas",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User loves apples",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User loves bananas",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User loves apples",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 4170
+  },
+  {
+    "variant": "E",
+    "caseId": 3,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "i luv bannana nd appl",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User loves bananas",
+          "confidence_score": 0.75,
+          "explicitness_score": 1
+        },
+        {
+          "type": "state",
+          "content": "User loves apples",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User loves bananas",
+        "confidence_score": 0.75,
+        "explicitness_score": 1
+      },
+      {
+        "type": "state",
+        "content": "User loves apples",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 5703
+  },
+  {
+    "variant": "A",
+    "caseId": 4,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 4209
+  },
+  {
+    "variant": "B",
+    "caseId": 4,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "User likes cars, with a particular fondness for Bugatti and Porsche, especially for racing.",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User likes cars, with a particular fondness for Bugatti and Porsche, especially for racing.",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3422
+  },
+  {
+    "variant": "C",
+    "caseId": 4,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User likes cars",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User likes cars",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2803
+  },
+  {
+    "variant": "D",
+    "caseId": 4,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "entity",
+          "content": "User likes cars",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User likes Bugatti",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User likes Porsche",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User enjoys racing",
+          "confidence_score": 0.75,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User likes cars",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User likes Bugatti",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User likes Porsche",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User enjoys racing",
+        "confidence_score": 0.75,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 8190
+  },
+  {
+    "variant": "E",
+    "caseId": 4,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "entity",
+          "content": "User loves cars",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User is fan of Bugatti",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User is fan of Porsche",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        },
+        {
+          "type": "entity",
+          "content": "User enjoys racing",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User loves cars",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User is fan of Bugatti",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User is fan of Porsche",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      },
+      {
+        "type": "entity",
+        "content": "User enjoys racing",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 7809
+  },
+  {
+    "variant": "A",
+    "caseId": 5,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "I prefer Toyota—actually, no, I meant Honda.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "vehicle preference",
+        "confidence_score": 0.5,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "vehicle preference",
+        "confidence_score": 0.5,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2958
+  },
+  {
+    "variant": "B",
+    "caseId": 5,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I prefer Toyota—actually, no, I meant Honda.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User prefers Honda",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User prefers Honda",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3141
+  },
+  {
+    "variant": "C",
+    "caseId": 5,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I prefer Toyota—actually, no, I meant Honda.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "User prefers Honda",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User prefers Honda",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2869
+  },
+  {
+    "variant": "D",
+    "caseId": 5,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I prefer Toyota—actually, no, I meant Honda.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User prefers Honda",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User prefers Honda",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2908
+  },
+  {
+    "variant": "E",
+    "caseId": 5,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I prefer Toyota—actually, no, I meant Honda.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "entity",
+          "content": "User prefers Honda",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "User prefers Honda",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3020
+  },
+  {
+    "variant": "A",
+    "caseId": 6,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "Actually, my favorite color is green now.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "favorite color",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "favorite color",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3149
+  },
+  {
+    "variant": "B",
+    "caseId": 6,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "Actually, my favorite color is green now.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3163
+  },
+  {
+    "variant": "C",
+    "caseId": 6,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "Recent conversation:\nUser: My favorite color is blue.\nAssistant: That's nice! Blue is a great color.\n\nLatest user message to analyze:\nActually, my favorite color is green now.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3096
+  },
+  {
+    "variant": "D",
+    "caseId": 6,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "Actually, my favorite color is green now.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User's favorite color is green",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3211
+  },
+  {
+    "variant": "E",
+    "caseId": 6,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "Recent conversation:\nUser: My favorite color is blue.\nAssistant: That's nice! Blue is a great color.\n\nLatest user message to analyze:\nActually, my favorite color is green now.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "semantic",
+          "content": "User's favorite color is green",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "semantic",
+        "content": "User's favorite color is green",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2781
+  },
+  {
+    "variant": "A",
+    "caseId": 7,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "Seattle.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "Seattle",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "Seattle",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2926
+  },
+  {
+    "variant": "B",
+    "caseId": 7,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "Seattle.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false,
+      "memory": {
+        "type": "state",
+        "content": "User lives in Seattle",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 3199
+  },
+  {
+    "variant": "C",
+    "caseId": 7,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "Recent conversation:\nAssistant: Where do you live?\n\nLatest user message to analyze:\nSeattle.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User lives in Seattle",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User lives in Seattle",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3125
+  },
+  {
+    "variant": "D",
+    "caseId": 7,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "Seattle.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User lives in Seattle",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User lives in Seattle",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2997
+  },
+  {
+    "variant": "E",
+    "caseId": 7,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "Recent conversation:\nAssistant: Where do you live?\n\nLatest user message to analyze:\nSeattle.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User lives in Seattle",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User lives in Seattle",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3122
+  },
+  {
+    "variant": "A",
+    "caseId": 8,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "I don't like them anymore.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 956
+  },
+  {
+    "variant": "B",
+    "caseId": 8,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "I don't like them anymore.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User doesn't like them anymore",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User doesn't like them anymore",
+        "confidence_score": 0.9,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3254
+  },
+  {
+    "variant": "C",
+    "caseId": 8,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "Recent conversation:\nUser: I used to really enjoy apples.\nAssistant: Apples are a great snack! Do you still eat them often?\n\nLatest user message to analyze:\nI don't like them anymore.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "state",
+        "content": "User does not like apples anymore",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User does not like apples anymore",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3022
+  },
+  {
+    "variant": "D",
+    "caseId": 8,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "I don't like them anymore.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User no longer likes them",
+          "confidence_score": 0.85,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User no longer likes them",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2799
+  },
+  {
+    "variant": "E",
+    "caseId": 8,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "Recent conversation:\nUser: I used to really enjoy apples.\nAssistant: Apples are a great snack! Do you still eat them often?\n\nLatest user message to analyze:\nI don't like them anymore.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User does not like apples anymore",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User does not like apples anymore",
+        "confidence_score": 0.95,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2828
+  },
+  {
+    "variant": "A",
+    "caseId": 9,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "If I moved to Japan, I'd probably learn Japanese.",
+    "schemaType": "single",
+    "rawOutput": null,
+    "validationError": null,
+    "executionError": "STRUCTURED_OUTPUT_FAILED",
+    "memories": [],
+    "latencyMs": 3715
+  },
+  {
+    "variant": "B",
+    "caseId": 9,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "If I moved to Japan, I'd probably learn Japanese.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false,
+      "memory": {
+        "type": "state",
+        "content": "User hasn't moved to Japan",
+        "confidence_score": 0.85,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 3404
+  },
+  {
+    "variant": "C",
+    "caseId": 9,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "If I moved to Japan, I'd probably learn Japanese.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false,
+      "memory": {
+        "type": "state",
+        "content": "",
+        "confidence_score": 0,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 2790
+  },
+  {
+    "variant": "D",
+    "caseId": 9,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "If I moved to Japan, I'd probably learn Japanese.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "entity",
+          "content": "Japan",
+          "confidence_score": 0.7,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "Japan",
+        "confidence_score": 0.7,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3057
+  },
+  {
+    "variant": "E",
+    "caseId": 9,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "If I moved to Japan, I'd probably learn Japanese.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User is interested in learning Japanese",
+          "confidence_score": 0.7,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User is interested in learning Japanese",
+        "confidence_score": 0.7,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 3213
+  },
+  {
+    "variant": "A",
+    "caseId": 10,
+    "model": "llama3:8b",
+    "systemPrompt": "ORIGINAL",
+    "promptSent": "My sister told me she likes Thai food.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": true,
+      "memory": {
+        "type": "entity",
+        "content": "Sister",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "entity",
+        "content": "Sister",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2980
+  },
+  {
+    "variant": "B",
+    "caseId": 10,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "My sister told me she likes Thai food.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false,
+      "memory": {
+        "type": "state",
+        "content": "",
+        "confidence_score": 0,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 3295
+  },
+  {
+    "variant": "C",
+    "caseId": 10,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_SINGLE",
+    "promptSent": "My sister told me she likes Thai food.",
+    "schemaType": "single",
+    "rawOutput": {
+      "hasMemory": false,
+      "memory": {
+        "type": "state",
+        "content": "NO durable personal facts, preferences, or states worth remembering.",
+        "confidence_score": 1,
+        "explicitness_score": 1
+      }
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [],
+    "latencyMs": 3475
+  },
+  {
+    "variant": "D",
+    "caseId": 10,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "My sister told me she likes Thai food.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User's sister likes Thai food",
+          "confidence_score": 0.6,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User's sister likes Thai food",
+        "confidence_score": 0.6,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2956
+  },
+  {
+    "variant": "E",
+    "caseId": 10,
+    "model": "llama3:8b",
+    "systemPrompt": "IMPROVED_MULTI",
+    "promptSent": "My sister told me she likes Thai food.",
+    "schemaType": "multi",
+    "rawOutput": {
+      "memories": [
+        {
+          "type": "state",
+          "content": "User sister's preference is Thai food",
+          "confidence_score": 0.6,
+          "explicitness_score": 1
+        }
+      ]
+    },
+    "validationError": null,
+    "executionError": null,
+    "memories": [
+      {
+        "type": "state",
+        "content": "User sister's preference is Thai food",
+        "confidence_score": 0.6,
+        "explicitness_score": 1
+      }
+    ],
+    "latencyMs": 2949
+  }
+]

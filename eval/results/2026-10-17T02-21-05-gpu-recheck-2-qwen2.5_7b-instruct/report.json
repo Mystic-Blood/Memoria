@@ -1,0 +1,351 @@
+{
+  "meta": {
+    "label": "gpu-recheck-2",
+    "engine": "v2",
+    "date": "2026-10-17T02:21:05.984Z",
+    "git": "922986d (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "ollama version is 0.40.5",
+    "set": "dev",
+    "cases": 5
+  },
+  "results": [
+    {
+      "id": "long-01",
+      "category": "long_messy",
+      "description": "Rambling paragraph with one durable fact",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is allergic to dairy",
+          "pass": true,
+          "evidence": [
+            "User found out they are allergic to dairy."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User spilled coffee",
+          "pass": false,
+          "evidence": [
+            "User spilled coffee on their shirt today."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User missed the bus",
+          "pass": false,
+          "evidence": [
+            "User missed the bus today."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User walked in the rain",
+          "pass": false,
+          "evidence": [
+            "User had to walk in the rain today."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": false,
+          "evidence": [
+            "5 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User woke up late today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        },
+        {
+          "content": "User spilled coffee on their shirt today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        },
+        {
+          "content": "User missed the bus today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        },
+        {
+          "content": "User found out they are allergic to dairy.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User had to walk in the rain today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "man today was so crazy. i woke up late, spilled coffee on my shirt, missed the bus. oh and i finally decided that i'm allergic to dairy, got tested yesterday. anyway, then i had to walk in the rain.",
+          "lines": [
+            "\"User woke up late today.\" -> add as temporary until 2026-10-17 (No related memory exists yet.)",
+            "\"User spilled coffee on their shirt today.\" -> add as temporary until 2026-10-17 (The new fact adds details about the user spilling coffee and walking in the rain, which are not covered by the existing memory.)",
+            "\"User missed the bus today.\" -> add as temporary until 2026-10-17 (Stored as a separate memory.) [guard: model chose \"update\" against a memory that is not similar enough (0.70 < 0.8)]",
+            "\"User found out they are allergic to dairy.\" -> add as fact (The new fact is about a new topic not covered by existing memories.)",
+            "\"User had to walk in the rain today.\" -> add as temporary until 2026-10-17 (The new fact is about a new experience.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        18240
+      ]
+    },
+    {
+      "id": "conv-pronoun-01",
+      "category": "conversation",
+      "description": "Details about \"it\" spread over turns",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User owns a Royal Enfield Classic 350",
+          "pass": true,
+          "evidence": [
+            "User got a Royal Enfield Classic 350 bike, matte black, and rides it to work every day."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User rides the bike to work every day",
+          "pass": true,
+          "evidence": [
+            "User got a Royal Enfield Classic 350 bike, matte black, and rides it to work every day."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User rides it to work (unresolved \"it\")",
+          "pass": false,
+          "evidence": [
+            "User got a Royal Enfield Classic 350 bike, matte black, and rides it to work every day."
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User got a new bike last week.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User got a Royal Enfield Classic 350 bike, matte black, and rides it to work every day.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "got a new bike last week",
+          "lines": [
+            "\"User got a new bike last week.\" -> add as fact (No related memory exists yet.)"
+          ]
+        },
+        {
+          "turn": "royal enfield classic 350, matte black",
+          "lines": [
+            "\"User got a Royal Enfield Classic 350 bike, matte black.\" -> add as fact (Stored as a separate memory.) [guard: model chose \"update\" against a memory that is not similar enough (0.69 < 0.8)]"
+          ]
+        },
+        {
+          "turn": "yeah i ride it to work every day",
+          "lines": [
+            "\"User rides their Royal Enfield Classic 350 bike to work every day.\" -> update as fact (Added daily usage detail to the existing memory.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3379,
+        6332,
+        6237
+      ]
+    },
+    {
+      "id": "conv-name-change-01",
+      "category": "conversation",
+      "description": "A different name when one is already known",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User teaches chemistry",
+          "pass": true,
+          "evidence": [
+            "User teaches chemistry."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "2 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's name is Priya.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User's name is Meera.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User teaches chemistry.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "hi there, my name is Meera and I teach chemistry",
+          "lines": [
+            "\"User's name is Meera.\" -> supersede as fact (New fact provides the correct name.)",
+            "\"User teaches chemistry.\" -> add as fact (New fact about user's profession.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        8091
+      ]
+    },
+    {
+      "id": "conv-assistant-task-01",
+      "category": "conversation",
+      "description": "Asking for help with a task is not a fact about the user",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants help with a getaway",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User wants a top 3 list",
+          "pass": false,
+          "evidence": [
+            "User no longer prefers places with lakes."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User prefers places with lakes.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User no longer prefers places with lakes.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "can u help me sort out a weekend getaway somewhere close by",
+          "lines": [
+            "nothing extracted"
+          ]
+        },
+        {
+          "turn": "idk somewhere with lakes. gimme your top 3",
+          "lines": [
+            "\"User prefers places with lakes.\" -> add as preference (No related memory exists yet.)"
+          ]
+        },
+        {
+          "turn": "nah forget that, what about a beach",
+          "lines": [
+            "\"User no longer prefers places with lakes.\" -> supersede as preference (The user explicitly stated a preference for beaches over lakes.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        1753,
+        3482,
+        5522
+      ]
+    },
+    {
+      "id": "conv-typo-fix-01",
+      "category": "conversation",
+      "description": "Obvious typos are corrected in the stored memory",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's favorite drink is a strawberry smoothie",
+          "pass": true,
+          "evidence": [
+            "User's favorite drink is a strawberry smoothie."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's favorite drink is a strawberry smoothie.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "my fav drink is a strawbery smoothy",
+          "lines": [
+            "\"User's favorite drink is a strawberry smoothie.\" -> add as fact (No related memory exists yet.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3377
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Every colour in the app comes from here; components use the semantic utilities
+ * below (bg-surface, text-muted, border-line, bg-accent, ...) so light and dark mode are switched in
+ * one place. The app follows the OS colour scheme.
+ */
+:root {
+  --canvas: #fafafb;
+  --surface: #ffffff;
+  --subtle: #f4f4f6;
+  --line: #e7e7ec;
+  --line-strong: #d5d5dd;
+  --fg: #18181b;
+  --muted: #52525b;
+  --faint: #6b6b76;
+
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-fg: #ffffff;
+  --accent-text: #4338ca;
+  --accent-soft: #eef0ff;
+  --accent-line: #c7cbfb;
+  /* Before/after chart marks: one hue, two steps; validated against --surface (dataviz ordinal check). */
+  --chart-before: #818cf8;
+  --chart-after: #4338ca;
+
+  --success: #15803d;
+  --success-soft: #effaf2;
+  --success-line: #bfe6cb;
+  --warning: #a15c07;
+  --warning-soft: #fff8eb;
+  --warning-line: #f5d9a0;
+  --danger: #b91c1c;
+  --danger-soft: #fef2f2;
+  --danger-line: #f6caca;
+
+  --shadow-color: 240 10% 20%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #0c0c10;
+    --surface: #14141a;
+    --subtle: #1c1c24;
+    --line: #26262f;
+    --line-strong: #363642;
+    --fg: #ececf1;
+    --muted: #a6a6b0;
+    --faint: #8a8a96;
+
+    --accent: #6366f1;
+    --accent-hover: #7c7ff5;
+    --accent-fg: #ffffff;
+    --accent-text: #a5b4fc;
+    --accent-soft: rgb(99 102 241 / 0.14);
+    --accent-line: rgb(129 140 248 / 0.35);
+    --chart-before: #4f46e5;
+    --chart-after: #a5b4fc;
+
+    --success: #4ade80;
+    --success-soft: rgb(34 197 94 / 0.1);
+    --success-line: rgb(74 222 128 / 0.25);
+    --warning: #fbbf24;
+    --warning-soft: rgb(245 158 11 / 0.1);
+    --warning-line: rgb(251 191 36 / 0.28);
+    --danger: #f87171;
+    --danger-soft: rgb(239 68 68 / 0.1);
+    --danger-line: rgb(248 113 113 / 0.28);
+
+    --shadow-color: 0 0% 0%;
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--accent-fg);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+  --color-chart-before: var(--chart-before);
+  --color-chart-after: var(--chart-after);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-line: var(--success-line);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-line: var(--warning-line);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-line: var(--danger-line);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --shadow-card: 0 1px 2px hsl(var(--shadow-color) / 0.05), 0 1px 1px hsl(var(--shadow-color) / 0.03);
+  --shadow-float: 0 12px 40px -12px hsl(var(--shadow-color) / 0.25), 0 2px 6px hsl(var(--shadow-color) / 0.06);
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--fg);
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+  }
+
+  /* One focus style everywhere: keyboard users always see where they are. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Shared building blocks: buttons, fields, cards. Sizes and radii are defined only here. */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+  .btn-lg {
+    @apply px-5 py-2.5 text-[15px];
+  }
+  .btn-primary {
+    @apply bg-accent text-on-accent shadow-card hover:bg-accent-hover;
+  }
+  .btn-secondary {
+    @apply border border-line-strong bg-surface text-fg shadow-card hover:bg-subtle;
+  }
+  .btn-ghost {
+    @apply text-muted hover:bg-subtle hover:text-fg;
+  }
+  .btn-danger-ghost {
+    @apply text-danger hover:bg-danger-soft;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-line-strong bg-surface px-3 py-2 text-fg placeholder:text-faint transition-colors focus:border-accent focus:outline-none focus:ring-3 focus:ring-accent/20;
+  }
+
+  .card {
+    @apply rounded-xl border border-line bg-surface shadow-card;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-wider text-faint;
+  }
+
+  .link {
+    @apply text-accent-text underline-offset-4 hover:underline;
+  }
+}

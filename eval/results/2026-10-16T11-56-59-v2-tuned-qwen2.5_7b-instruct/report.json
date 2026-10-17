@@ -1,0 +1,1771 @@
+{
+  "meta": {
+    "label": "v2-tuned",
+    "engine": "v2",
+    "date": "2026-10-16T11:56:59.582Z",
+    "git": "b16c101 (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "ollama version is 0.40.4",
+    "set": "dev",
+    "cases": 33
+  },
+  "results": [
+    {
+      "id": "clean-01",
+      "category": "clean",
+      "description": "Simple single fact statement",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is allergic to peanuts",
+          "pass": true,
+          "evidence": [
+            "User is allergic to peanuts."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is allergic to peanuts.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2948
+      ]
+    },
+    {
+      "id": "clean-02",
+      "category": "clean",
+      "description": "Simple preference",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's favorite color is blue",
+          "pass": true,
+          "evidence": [
+            "User's favorite color is blue."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's favorite color is blue.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2385
+      ]
+    },
+    {
+      "id": "clean-03",
+      "category": "clean",
+      "description": "Simple fact with slang",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User has a dog named Rusty",
+          "pass": true,
+          "evidence": [
+            "User's dog is named Rusty."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "He's a good boi (without saying who)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's dog is named Rusty.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2618
+      ]
+    },
+    {
+      "id": "corr-01",
+      "category": "correction",
+      "description": "Correcting a previously stated fact explicitly",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's favorite color is green",
+          "pass": true,
+          "evidence": [
+            "User's favorite color is green."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User's favorite color is blue",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "what is my favorite color?",
+          "fact": "favorite color is green",
+          "pass": true,
+          "evidence": [
+            "User's favorite color is green."
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what is my favorite color?",
+          "fact": "favorite color is blue",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's favorite color is blue",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User's favorite color is green.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "what is my favorite color?",
+          "retrieved": [
+            "User's favorite color is green."
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4130
+      ]
+    },
+    {
+      "id": "corr-02",
+      "category": "correction",
+      "description": "Changed mind about a preference without naming the subject",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User hates sushi",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "not_active",
+          "fact": "User loves eating sushi",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User had a bad experience (no subject)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User loves eating sushi",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User hates it now.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4669
+      ]
+    },
+    {
+      "id": "corr-03",
+      "category": "correction",
+      "description": "Correcting an entity's attribute",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's brother is 26 years old",
+          "pass": true,
+          "evidence": [
+            "User's brother is 26 years old."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User's brother is 25 years old",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's brother is 26 years old.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4351
+      ]
+    },
+    {
+      "id": "corr-04",
+      "category": "correction",
+      "description": "Self-correction in the same message",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User drives a Toyota",
+          "pass": true,
+          "evidence": [
+            "User drives a Toyota."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User drives a Honda",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User drives a Toyota.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2262
+      ]
+    },
+    {
+      "id": "corr-05",
+      "category": "correction",
+      "description": "Implicit negation of a previous fact",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User works at Microsoft",
+          "pass": true,
+          "evidence": [
+            "User works at Microsoft."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User works at Google",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User works at Google",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User no longer works at Google.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User works at Microsoft.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        7578
+      ]
+    },
+    {
+      "id": "time-01",
+      "category": "change_over_time",
+      "description": "Moving to a new city",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User lives in Chicago",
+          "pass": true,
+          "evidence": [
+            "User lives in Chicago."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User lives in New York",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User lives in New York",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User lives in Chicago.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4510
+      ]
+    },
+    {
+      "id": "time-02",
+      "category": "change_over_time",
+      "description": "New job replacing being a student",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User graduated from MIT",
+          "pass": true,
+          "evidence": [
+            "User graduated from MIT and works as a data scientist at Amazon."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User works as a data scientist at Amazon",
+          "pass": true,
+          "evidence": [
+            "User graduated from MIT and works as a data scientist at Amazon."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User is a student at MIT",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is a student at MIT",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User graduated from MIT and works as a data scientist at Amazon.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        7638
+      ]
+    },
+    {
+      "id": "time-03",
+      "category": "change_over_time",
+      "description": "Switching phones",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User uses an iPhone",
+          "pass": true,
+          "evidence": [
+            "User uses an iPhone now."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User uses an Android phone",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User uses an Android phone",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User uses an iPhone now.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4156
+      ]
+    },
+    {
+      "id": "implicit-01",
+      "category": "implicit_reference",
+      "description": "Short answer to the assistant's question",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User lives in Seattle",
+          "pass": true,
+          "evidence": [
+            "User currently lives in Seattle."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "where do i live?",
+          "fact": "lives in Seattle",
+          "pass": true,
+          "evidence": [
+            "User currently lives in Seattle."
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User currently lives in Seattle.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "where do i live?",
+          "retrieved": [
+            "User currently lives in Seattle."
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        3053
+      ]
+    },
+    {
+      "id": "implicit-02",
+      "category": "implicit_reference",
+      "description": "Referring back to a topic from a previous turn",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "Project Phoenix is a database migration tool",
+          "pass": true,
+          "evidence": [
+            "User is working on a project called Phoenix, a new database migration tool."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is working on a project called Phoenix, a new database migration tool.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2746,
+        5195
+      ]
+    },
+    {
+      "id": "implicit-03",
+      "category": "implicit_reference",
+      "description": "Pronoun referring to a remembered dog",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's dog Rover is a golden retriever",
+          "pass": true,
+          "evidence": [
+            "User has a golden retriever named Rover."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "He is a golden retriever (unresolved pronoun)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User has a golden retriever named Rover.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4537
+      ]
+    },
+    {
+      "id": "long-01",
+      "category": "long_messy",
+      "description": "Rambling paragraph with one durable fact",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is allergic to dairy",
+          "pass": true,
+          "evidence": [
+            "User found out they are allergic to dairy yesterday."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User spilled coffee",
+          "pass": false,
+          "evidence": [
+            "User spilled coffee on their shirt today."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User missed the bus",
+          "pass": false,
+          "evidence": [
+            "User woke up late and missed the bus today."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User walked in the rain",
+          "pass": false,
+          "evidence": [
+            "User had to walk in the rain today."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": false,
+          "evidence": [
+            "4 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User woke up late and missed the bus today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        },
+        {
+          "content": "User spilled coffee on their shirt today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        },
+        {
+          "content": "User found out they are allergic to dairy yesterday.",
+          "status": "active",
+          "valid_until": "2026-10-23T23:59:59+00:00"
+        },
+        {
+          "content": "User had to walk in the rain today.",
+          "status": "active",
+          "valid_until": "2026-10-17T23:59:59+00:00"
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        32318
+      ]
+    },
+    {
+      "id": "long-02",
+      "category": "long_messy",
+      "description": "Long tech discussion with one real preference",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User always uses Vercel for personal projects",
+          "pass": true,
+          "evidence": [
+            "User prefers Vercel for personal projects because it is simpler and easier to use, though they find AWS overwhelming and don't love GCP's UI."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "AWS is overwhelming",
+          "pass": false,
+          "evidence": [
+            "User prefers Vercel for personal projects because it is simpler and easier to use, though they find AWS overwhelming and don't love GCP's UI."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "GCP is okay",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User prefers Vercel for personal projects because it is simpler and easier to use, though they find AWS overwhelming and don't love GCP's UI.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        9946
+      ]
+    },
+    {
+      "id": "long-03",
+      "category": "long_messy",
+      "description": "Stream of consciousness with a family fact",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User has a sister named Emily",
+          "pass": true,
+          "evidence": [
+            "User's sister's name is Emily, and they are considering hosting Thanksgiving at her place due to its larger size."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "They might do thanksgiving at Emily's place",
+          "pass": false,
+          "evidence": [
+            "User's sister's name is Emily, and they are considering hosting Thanksgiving at her place due to its larger size."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's sister's name is Emily, and they are considering hosting Thanksgiving at her place due to its larger size.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        6717
+      ]
+    },
+    {
+      "id": "multi-01",
+      "category": "multi_fact",
+      "description": "Three distinct facts in one message",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is a software engineer",
+          "pass": true,
+          "evidence": [
+            "User is a software engineer."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User lives in Boston",
+          "pass": true,
+          "evidence": [
+            "User lives in Boston."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User loves hiking",
+          "pass": true,
+          "evidence": [
+            "User loves hiking."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "3 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is a software engineer.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User lives in Boston.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User loves hiking.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        8248
+      ]
+    },
+    {
+      "id": "multi-02",
+      "category": "multi_fact",
+      "description": "Two related facts",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's wife is named Sarah",
+          "pass": true,
+          "evidence": [
+            "User's wife is Sarah."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User has 2 kids",
+          "pass": true,
+          "evidence": [
+            "User has 2 kids."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "2 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's wife is Sarah.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User has 2 kids.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        5800
+      ]
+    },
+    {
+      "id": "multi-03",
+      "category": "multi_fact",
+      "description": "Three preferences",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User prefers dark mode",
+          "pass": true,
+          "evidence": [
+            "User prefers dark mode."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User prefers vim over emacs",
+          "pass": true,
+          "evidence": [
+            "User uses vim instead of emacs."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User prefers tabs over spaces",
+          "pass": true,
+          "evidence": [
+            "User uses tabs instead of spaces."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "3 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User prefers dark mode.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User uses vim instead of emacs.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User uses tabs instead of spaces.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        8381
+      ]
+    },
+    {
+      "id": "multi-04",
+      "category": "multi_fact",
+      "description": "Project details",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is working on Project Alpha",
+          "pass": true,
+          "evidence": [
+            "User is working on project alpha, whose deadline is 2026-10-31 and uses React."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "Project Alpha deadline is Nov 1st",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "stored",
+          "fact": "Project Alpha uses React",
+          "pass": true,
+          "evidence": [
+            "User is working on project alpha, whose deadline is 2026-10-31 and uses React."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is working on project alpha, whose deadline is 2026-10-31 and uses React.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        11079
+      ]
+    },
+    {
+      "id": "noise-01",
+      "category": "noise",
+      "description": "Small talk and transient state",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User is tired",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User says hello",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1244
+      ]
+    },
+    {
+      "id": "noise-02",
+      "category": "noise",
+      "description": "Question seeking information",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants to know the weather",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1260
+      ]
+    },
+    {
+      "id": "noise-03",
+      "category": "noise",
+      "description": "Hypothetical scenario",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User would buy a boat",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1217
+      ]
+    },
+    {
+      "id": "noise-04",
+      "category": "noise",
+      "description": "Quoting someone else",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User (or John) is moving to Paris",
+          "pass": false,
+          "evidence": [
+            "User's friend John is moving to Paris."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "where am i moving?",
+          "fact": "moving to Paris",
+          "pass": false,
+          "evidence": [
+            "User's friend John is moving to Paris."
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's friend John is moving to Paris.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "where am i moving?",
+          "retrieved": [
+            "User's friend John is moving to Paris."
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2961
+      ]
+    },
+    {
+      "id": "refine-01",
+      "category": "refinement",
+      "description": "Narrowing a preference",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User only likes black coffee with no sugar",
+          "pass": true,
+          "evidence": [
+            "User likes black coffee."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User likes black coffee.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4110
+      ]
+    },
+    {
+      "id": "refine-02",
+      "category": "refinement",
+      "description": "Adding detail to a project",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "Project Alpha is a social media app",
+          "pass": true,
+          "evidence": [
+            "User is working on a new social media app called Project Alpha."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is working on a new social media app called Project Alpha.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        5796
+      ]
+    },
+    {
+      "id": "refine-03",
+      "category": "refinement",
+      "description": "Adding a condition to a fact",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User goes to the gym on Mondays only if it rains",
+          "pass": true,
+          "evidence": [
+            "User goes to the gym on Mondays only if it's raining."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User goes to the gym on Mondays only if it's raining.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4615
+      ]
+    },
+    {
+      "id": "retrieval-01",
+      "category": "retrieval_relevance",
+      "description": "Retrieve only the relevant memory out of many",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User asks about their pet",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 8 active memories",
+          "pass": true,
+          "evidence": [
+            "8 active"
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "what kind of pet do i have?",
+          "fact": "User has a cat named Whiskers",
+          "pass": true,
+          "evidence": [
+            "User has a cat named Whiskers"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what kind of pet do i have?",
+          "fact": "User likes pizza",
+          "pass": false,
+          "evidence": [
+            "User likes pizza"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what kind of pet do i have?",
+          "fact": "User drives a Ford F150",
+          "pass": false,
+          "evidence": [
+            "User drives a Ford F150"
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "what language do i speak?",
+          "fact": "User speaks Spanish fluently",
+          "pass": true,
+          "evidence": [
+            "User speaks Spanish fluently"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what language do i speak?",
+          "fact": "User works as a plumber",
+          "pass": false,
+          "evidence": [
+            "User works as a plumber"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what language do i speak?",
+          "fact": "User studied history",
+          "pass": false,
+          "evidence": [
+            "User studied history in college"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User likes pizza",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User works as a plumber",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User lives in Texas",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User has a cat named Whiskers",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User speaks Spanish fluently",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User's favorite movie is The Matrix",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User studied history in college",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User drives a Ford F150",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "what kind of pet do i have?",
+          "retrieved": [
+            "User has a cat named Whiskers",
+            "User drives a Ford F150",
+            "User lives in Texas",
+            "User works as a plumber",
+            "User likes pizza"
+          ]
+        },
+        {
+          "query": "what language do i speak?",
+          "retrieved": [
+            "User speaks Spanish fluently",
+            "User lives in Texas",
+            "User studied history in college",
+            "User has a cat named Whiskers",
+            "User works as a plumber"
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2743
+      ]
+    },
+    {
+      "id": "retrieval-02",
+      "category": "retrieval_relevance",
+      "description": "Query unrelated to every stored memory (should retrieve nothing)",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants to know the capital of France",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 4 active memories",
+          "pass": true,
+          "evidence": [
+            "4 active"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what is the capital of France?",
+          "fact": "User is 30 years old",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what is the capital of France?",
+          "fact": "User likes playing tennis",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what is the capital of France?",
+          "fact": "User's mother is named Susan",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "what is the capital of France?",
+          "fact": "User is allergic to penicillin",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is 30 years old",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User likes playing tennis",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User's mother is named Susan",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User is allergic to penicillin",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "what is the capital of France?",
+          "retrieved": []
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1597
+      ]
+    },
+    {
+      "id": "state-01",
+      "category": "state_expiry",
+      "description": "Temporary travel fact gets an end date",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is visiting Tokyo",
+          "pass": true,
+          "evidence": [
+            "User is visiting Tokyo until 2026-10-20."
+          ]
+        },
+        {
+          "kind": "expires",
+          "fact": "Tokyo visit ends next Friday",
+          "pass": true,
+          "evidence": [
+            "User is visiting Tokyo until 2026-10-20."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is visiting Tokyo until 2026-10-20.",
+          "status": "active",
+          "valid_until": "2026-10-20T23:59:59+00:00"
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        3926
+      ]
+    },
+    {
+      "id": "state-02",
+      "category": "state_expiry",
+      "description": "Temporary health condition gets an end date",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is sick with the flu this week",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "expires",
+          "fact": "Flu is temporary",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2347
+      ]
+    },
+    {
+      "id": "jack-01",
+      "category": "real_conversation",
+      "description": "The owner's own test conversation (2026-10-16): typos, many facts, a contradiction, recall later",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's name is Jack",
+          "pass": true,
+          "evidence": [
+            "User's name is Jack."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User loves bananas",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "stored",
+          "fact": "User likes mango smoothies",
+          "pass": true,
+          "evidence": [
+            "User likes mango smoothies."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User owns a mansion in Saudi Arabia",
+          "pass": true,
+          "evidence": [
+            "User owns a mansion in Saudi Arabia."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User owns a private jet worth $5 million",
+          "pass": true,
+          "evidence": [
+            "User has a private jet worth 5 million dollars."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User has visited 21 countries",
+          "pass": true,
+          "evidence": [
+            "User has been to 21 different countries."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User hates strawberries",
+          "pass": true,
+          "evidence": [
+            "User hates strawberries."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User likes strawberries",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "retrieve",
+          "query": "what's my name and how much did my private jet cost?",
+          "fact": "User's name is Jack",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "retrieve",
+          "query": "what's my name and how much did my private jet cost?",
+          "fact": "Private jet worth $5 million",
+          "pass": true,
+          "evidence": [
+            "User has a private jet worth 5 million dollars."
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "which fruit do i hate?",
+          "fact": "User hates strawberries",
+          "pass": true,
+          "evidence": [
+            "User hates strawberries."
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's name is Jack.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User likes mango smoothies.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User likes strawberry smoothies.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User owns a mansion in Saudi Arabia.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User has a private jet worth 5 million dollars.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User has been to 21 different countries.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User hates strawberries.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "what's my name and how much did my private jet cost?",
+          "retrieved": [
+            "User has a private jet worth 5 million dollars."
+          ]
+        },
+        {
+          "query": "which fruit do i hate?",
+          "retrieved": [
+            "User hates strawberries.",
+            "User likes mango smoothies."
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4350,
+        8359,
+        1574,
+        9219,
+        4825,
+        4375
+      ]
+    }
+  ]
+}

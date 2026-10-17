@@ -1,0 +1,896 @@
+[
+  {
+    "case": {
+      "id": 1,
+      "name": "Simple preference",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I love pizza."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "f0b0bb05-3ed5-44f5-bd04-883dbd9c1176",
+            "memory": "User loves pizza",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "f0b0bb05-3ed5-44f5-bd04-883dbd9c1176",
+            "memory": "User loves pizza",
+            "hash": "1dac9b1d6faae62963997c8dc3ebed0e",
+            "createdAt": "2026-10-10T08:24:26.117Z",
+            "updatedAt": "2026-10-10T08:24:26.117Z",
+            "metadata": {},
+            "user_id": "user_1_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 20752
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "719e70e9-3043-413a-8cd5-8e21672139ae",
+            "memory": "User loves pizza",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "719e70e9-3043-413a-8cd5-8e21672139ae",
+            "memory": "User loves pizza",
+            "hash": "1dac9b1d6faae62963997c8dc3ebed0e",
+            "createdAt": "2026-10-10T08:24:32.980Z",
+            "updatedAt": "2026-10-10T08:24:32.980Z",
+            "metadata": {},
+            "user_id": "user_1_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 4939
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "98ac78c7-c23c-4c54-87e4-e3cc459cf2d6",
+            "memory": "User expresses love for pizza",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "98ac78c7-c23c-4c54-87e4-e3cc459cf2d6",
+            "memory": "User expresses love for pizza",
+            "hash": "2184aa1a04ca2df8c5cf024307cec954",
+            "createdAt": "2026-10-10T08:24:37.971Z",
+            "updatedAt": "2026-10-10T08:24:37.971Z",
+            "metadata": {},
+            "user_id": "user_1_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 4992
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 2,
+      "name": "Multiple facts",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I'm a software engineer, I live in Boston, and I love hiking."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "c9801304-cbfc-4a30-8765-6d8bf2351756",
+            "memory": "User is a software engineer",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "efc36aa8-80bf-4a17-8672-38031815a718",
+            "memory": "User lives in Boston",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "440b93e1-b8e2-4a7f-8866-6b98a6183454",
+            "memory": "User enjoys hiking",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "c9801304-cbfc-4a30-8765-6d8bf2351756",
+            "memory": "User is a software engineer",
+            "hash": "c2e7b869d8962d789a5e3c0454c21656",
+            "createdAt": "2026-10-10T08:24:54.487Z",
+            "updatedAt": "2026-10-10T08:24:54.487Z",
+            "metadata": {},
+            "user_id": "user_2_run_0",
+            "attributedTo": "user"
+          },
+          {
+            "id": "efc36aa8-80bf-4a17-8672-38031815a718",
+            "memory": "User lives in Boston",
+            "hash": "645ccea335c6461faed09b1b5a17350e",
+            "createdAt": "2026-10-10T08:24:54.487Z",
+            "updatedAt": "2026-10-10T08:24:54.487Z",
+            "metadata": {},
+            "user_id": "user_2_run_0",
+            "attributedTo": "user"
+          },
+          {
+            "id": "440b93e1-b8e2-4a7f-8866-6b98a6183454",
+            "memory": "User enjoys hiking",
+            "hash": "0cc3b607af35e42c344e1061146e0562",
+            "createdAt": "2026-10-10T08:24:54.487Z",
+            "updatedAt": "2026-10-10T08:24:54.487Z",
+            "metadata": {},
+            "user_id": "user_2_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 16615
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "6cd946b9-d2bc-4241-aae8-6a907e075551",
+            "memory": "User is a software engineer",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "fb0270de-1b67-423f-bb6e-03924d285226",
+            "memory": "User lives in Boston",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "22e9174e-9bfc-49aa-85c1-7eb078732adb",
+            "memory": "User enjoys hiking",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "6cd946b9-d2bc-4241-aae8-6a907e075551",
+            "memory": "User is a software engineer",
+            "hash": "c2e7b869d8962d789a5e3c0454c21656",
+            "createdAt": "2026-10-10T08:24:59.870Z",
+            "updatedAt": "2026-10-10T08:24:59.870Z",
+            "metadata": {},
+            "user_id": "user_2_run_1",
+            "attributedTo": "user"
+          },
+          {
+            "id": "fb0270de-1b67-423f-bb6e-03924d285226",
+            "memory": "User lives in Boston",
+            "hash": "645ccea335c6461faed09b1b5a17350e",
+            "createdAt": "2026-10-10T08:24:59.871Z",
+            "updatedAt": "2026-10-10T08:24:59.871Z",
+            "metadata": {},
+            "user_id": "user_2_run_1",
+            "attributedTo": "user"
+          },
+          {
+            "id": "22e9174e-9bfc-49aa-85c1-7eb078732adb",
+            "memory": "User enjoys hiking",
+            "hash": "0cc3b607af35e42c344e1061146e0562",
+            "createdAt": "2026-10-10T08:24:59.871Z",
+            "updatedAt": "2026-10-10T08:24:59.871Z",
+            "metadata": {},
+            "user_id": "user_2_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 5327
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "7d6d7f3d-2535-4ee9-b0a8-1d29888d101a",
+            "memory": "User is a software engineer",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "30a07c25-7f88-45cc-bde0-395e90db1edf",
+            "memory": "User lives in Boston",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "d2b2ce00-dd7f-437d-a031-8ad4f29b0bb4",
+            "memory": "User loves hiking",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "7d6d7f3d-2535-4ee9-b0a8-1d29888d101a",
+            "memory": "User is a software engineer",
+            "hash": "c2e7b869d8962d789a5e3c0454c21656",
+            "createdAt": "2026-10-10T08:25:07.274Z",
+            "updatedAt": "2026-10-10T08:25:07.274Z",
+            "metadata": {},
+            "user_id": "user_2_run_2",
+            "attributedTo": "user"
+          },
+          {
+            "id": "30a07c25-7f88-45cc-bde0-395e90db1edf",
+            "memory": "User lives in Boston",
+            "hash": "645ccea335c6461faed09b1b5a17350e",
+            "createdAt": "2026-10-10T08:25:07.275Z",
+            "updatedAt": "2026-10-10T08:25:07.275Z",
+            "metadata": {},
+            "user_id": "user_2_run_2",
+            "attributedTo": "user"
+          },
+          {
+            "id": "d2b2ce00-dd7f-437d-a031-8ad4f29b0bb4",
+            "memory": "User loves hiking",
+            "hash": "e8f5060afe0eacdc6dcfec8dde11c027",
+            "createdAt": "2026-10-10T08:25:07.275Z",
+            "updatedAt": "2026-10-10T08:25:07.275Z",
+            "metadata": {},
+            "user_id": "user_2_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 6540
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 3,
+      "name": "Typos",
+      "messages": [
+        {
+          "role": "user",
+          "content": "i luv bannana nd appl"
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "d77ce21c-332d-45f4-8910-147f9e80781c",
+            "memory": "User loves banana and apple",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "d77ce21c-332d-45f4-8910-147f9e80781c",
+            "memory": "User loves banana and apple",
+            "hash": "ee61b6d3fff606c8bd0937378ea48c11",
+            "createdAt": "2026-10-10T08:25:15.647Z",
+            "updatedAt": "2026-10-10T08:25:15.647Z",
+            "metadata": {},
+            "user_id": "user_3_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 8333
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "82ef5209-4989-44d6-9aa5-c9fef2f2527b",
+            "memory": "User has a preference for bananas and apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "82ef5209-4989-44d6-9aa5-c9fef2f2527b",
+            "memory": "User has a preference for bananas and apples",
+            "hash": "c60663bb5417c6113bb483b73e2be02f",
+            "createdAt": "2026-10-10T08:25:17.638Z",
+            "updatedAt": "2026-10-10T08:25:17.638Z",
+            "metadata": {},
+            "user_id": "user_3_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 1994
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "a2c85eb6-8436-4b43-a997-28fb55a65b78",
+            "memory": "User expresses love for banana and apple",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "a2c85eb6-8436-4b43-a997-28fb55a65b78",
+            "memory": "User expresses love for banana and apple",
+            "hash": "171e822de03e8eb1ea1f529ab4776199",
+            "createdAt": "2026-10-10T08:25:19.615Z",
+            "updatedAt": "2026-10-10T08:25:19.615Z",
+            "metadata": {},
+            "user_id": "user_3_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 1973
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 4,
+      "name": "Self-correction",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I prefer Toyota—actually, no, I meant Honda."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "e1a82934-67b4-4e9f-a6d6-ea54defff7b8",
+            "memory": "User prefers Honda",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "e1a82934-67b4-4e9f-a6d6-ea54defff7b8",
+            "memory": "User prefers Honda",
+            "hash": "a2131728b9a2bc1664e07f037d68c1c0",
+            "createdAt": "2026-10-10T08:25:25.705Z",
+            "updatedAt": "2026-10-10T08:25:25.705Z",
+            "metadata": {},
+            "user_id": "user_4_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 6085
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "22590ab5-1ed1-4f17-8c56-8e1ac742fb99",
+            "memory": "User prefers Honda",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "22590ab5-1ed1-4f17-8c56-8e1ac742fb99",
+            "memory": "User prefers Honda",
+            "hash": "a2131728b9a2bc1664e07f037d68c1c0",
+            "createdAt": "2026-10-10T08:25:27.384Z",
+            "updatedAt": "2026-10-10T08:25:27.384Z",
+            "metadata": {},
+            "user_id": "user_4_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 1701
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "bff44f9f-d763-4b48-b3ef-7f8e9c7a7172",
+            "memory": "User prefers Honda",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "bff44f9f-d763-4b48-b3ef-7f8e9c7a7172",
+            "memory": "User prefers Honda",
+            "hash": "a2131728b9a2bc1664e07f037d68c1c0",
+            "createdAt": "2026-10-10T08:25:32.153Z",
+            "updatedAt": "2026-10-10T08:25:32.153Z",
+            "metadata": {},
+            "user_id": "user_4_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 4758
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 5,
+      "name": "Conversational context",
+      "messages": [
+        {
+          "role": "assistant",
+          "content": "Where do you live?"
+        },
+        {
+          "role": "user",
+          "content": "Seattle."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "a77d8a9f-ca07-4222-923a-35c4b7ecb0f1",
+            "memory": "User lives in Seattle",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "a77d8a9f-ca07-4222-923a-35c4b7ecb0f1",
+            "memory": "User lives in Seattle",
+            "hash": "df7fe4dfc6eaa5b88859e19b12fdf794",
+            "createdAt": "2026-10-10T08:25:34.745Z",
+            "updatedAt": "2026-10-10T08:25:34.745Z",
+            "metadata": {},
+            "user_id": "user_5_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 2575
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "17b68a85-c73a-4d2b-a9c7-8ebfe841edc4",
+            "memory": "User lives in Seattle",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "17b68a85-c73a-4d2b-a9c7-8ebfe841edc4",
+            "memory": "User lives in Seattle",
+            "hash": "df7fe4dfc6eaa5b88859e19b12fdf794",
+            "createdAt": "2026-10-10T08:25:38.706Z",
+            "updatedAt": "2026-10-10T08:25:38.706Z",
+            "metadata": {},
+            "user_id": "user_5_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 3977
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "f4dab131-b401-4eda-b324-6776a601711b",
+            "memory": "User lives in Seattle",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "f4dab131-b401-4eda-b324-6776a601711b",
+            "memory": "User lives in Seattle",
+            "hash": "df7fe4dfc6eaa5b88859e19b12fdf794",
+            "createdAt": "2026-10-10T08:25:40.909Z",
+            "updatedAt": "2026-10-10T08:25:40.909Z",
+            "metadata": {},
+            "user_id": "user_5_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 2193
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 6,
+      "name": "Pronoun resolution",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I used to really enjoy apples."
+        },
+        {
+          "role": "assistant",
+          "content": "Apples are a great snack! Do you still eat them often?"
+        },
+        {
+          "role": "user",
+          "content": "I don't like them anymore."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "b32ab84d-eed4-452b-a46a-cfd661088769",
+            "memory": "User used to enjoy eating apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "8b21bccd-31d4-4fcc-9942-3f53648ab6a7",
+            "memory": "User no longer enjoys eating apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "b32ab84d-eed4-452b-a46a-cfd661088769",
+            "memory": "User used to enjoy eating apples",
+            "hash": "78b83ceec637c045555daf507de757b1",
+            "createdAt": "2026-10-10T08:26:10.953Z",
+            "updatedAt": "2026-10-10T08:26:10.953Z",
+            "metadata": {},
+            "user_id": "user_6_run_0",
+            "attributedTo": "user"
+          },
+          {
+            "id": "8b21bccd-31d4-4fcc-9942-3f53648ab6a7",
+            "memory": "User no longer enjoys eating apples",
+            "hash": "566a0b224d187a02f984d6e7121f6fa1",
+            "createdAt": "2026-10-10T08:26:10.953Z",
+            "updatedAt": "2026-10-10T08:26:10.953Z",
+            "metadata": {},
+            "user_id": "user_6_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 30015
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "5ec641dc-ea12-45c7-b872-cf2bed4f0874",
+            "memory": "User used to really enjoy eating apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "020c1e0e-cbb0-4884-bf34-475caf68c379",
+            "memory": "User stopped liking apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "5ec641dc-ea12-45c7-b872-cf2bed4f0874",
+            "memory": "User used to really enjoy eating apples",
+            "hash": "9a551ebb4401e09ea5ff7fcadba2c77d",
+            "createdAt": "2026-10-10T08:26:16.032Z",
+            "updatedAt": "2026-10-10T08:26:16.032Z",
+            "metadata": {},
+            "user_id": "user_6_run_1",
+            "attributedTo": "user"
+          },
+          {
+            "id": "020c1e0e-cbb0-4884-bf34-475caf68c379",
+            "memory": "User stopped liking apples",
+            "hash": "043fc13b011b2742d63684009c45a08b",
+            "createdAt": "2026-10-10T08:26:16.032Z",
+            "updatedAt": "2026-10-10T08:26:16.032Z",
+            "metadata": {},
+            "user_id": "user_6_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 5076
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "65aae4c1-ed59-4aa3-9b6a-39899be14bb2",
+            "memory": "User used to enjoy eating apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "13764929-f8ce-4d9d-9734-7eb398d1a3f1",
+            "memory": "Apples are a great snack according to the assistant",
+            "metadata": {
+              "event": "ADD"
+            }
+          },
+          {
+            "id": "935fee70-e6cf-4bff-8c06-23e17186bf6c",
+            "memory": "User no longer enjoys eating apples",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "65aae4c1-ed59-4aa3-9b6a-39899be14bb2",
+            "memory": "User used to enjoy eating apples",
+            "hash": "78b83ceec637c045555daf507de757b1",
+            "createdAt": "2026-10-10T08:26:23.252Z",
+            "updatedAt": "2026-10-10T08:26:23.252Z",
+            "metadata": {},
+            "user_id": "user_6_run_2",
+            "attributedTo": "user"
+          },
+          {
+            "id": "13764929-f8ce-4d9d-9734-7eb398d1a3f1",
+            "memory": "Apples are a great snack according to the assistant",
+            "hash": "fa45554deaac5ba1e9735ccc52ce0b02",
+            "createdAt": "2026-10-10T08:26:23.252Z",
+            "updatedAt": "2026-10-10T08:26:23.252Z",
+            "metadata": {},
+            "user_id": "user_6_run_2",
+            "attributedTo": "assistant"
+          },
+          {
+            "id": "935fee70-e6cf-4bff-8c06-23e17186bf6c",
+            "memory": "User no longer enjoys eating apples",
+            "hash": "566a0b224d187a02f984d6e7121f6fa1",
+            "createdAt": "2026-10-10T08:26:23.252Z",
+            "updatedAt": "2026-10-10T08:26:23.252Z",
+            "metadata": {},
+            "user_id": "user_6_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 7221
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 7,
+      "name": "Hypothetical",
+      "messages": [
+        {
+          "role": "user",
+          "content": "If I moved to Japan, I'd probably learn Japanese."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "bcbd613e-e0f7-4637-b6ff-add90eeba512",
+            "memory": "User is considering moving to Japan and would likely learn Japanese as a result",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "bcbd613e-e0f7-4637-b6ff-add90eeba512",
+            "memory": "User is considering moving to Japan and would likely learn Japanese as a result",
+            "hash": "abb771b0cc3ed43a06eb5d7b3c770421",
+            "createdAt": "2026-10-10T08:26:27.109Z",
+            "updatedAt": "2026-10-10T08:26:27.109Z",
+            "metadata": {},
+            "user_id": "user_7_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 3920
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "13cf03cc-4efa-4048-8118-61d1fadedd90",
+            "memory": "User would learn Japanese if they moved to Japan",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "13cf03cc-4efa-4048-8118-61d1fadedd90",
+            "memory": "User would learn Japanese if they moved to Japan",
+            "hash": "9c6f3c0200828d3a0c45e3ed2c0b05a3",
+            "createdAt": "2026-10-10T08:26:30.630Z",
+            "updatedAt": "2026-10-10T08:26:30.630Z",
+            "metadata": {},
+            "user_id": "user_7_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 3509
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "cf126479-791c-483c-962e-9d01dce16939",
+            "memory": "User would probably learn Japanese if they moved to Japan",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "cf126479-791c-483c-962e-9d01dce16939",
+            "memory": "User would probably learn Japanese if they moved to Japan",
+            "hash": "aa2c39341083dff5cb632acc5f6a3acf",
+            "createdAt": "2026-10-10T08:26:34.528Z",
+            "updatedAt": "2026-10-10T08:26:34.528Z",
+            "metadata": {},
+            "user_id": "user_7_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 3900
+      }
+    ]
+  },
+  {
+    "case": {
+      "id": 8,
+      "name": "Third-party",
+      "messages": [
+        {
+          "role": "user",
+          "content": "My sister told me she likes Thai food."
+        }
+      ]
+    },
+    "runs": [
+      {
+        "run": 1,
+        "added": [
+          {
+            "id": "405ea658-c3b5-4555-9feb-8b22609161e2",
+            "memory": "User's sister likes Thai food",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "405ea658-c3b5-4555-9feb-8b22609161e2",
+            "memory": "User's sister likes Thai food",
+            "hash": "65087f4f5471c2089ea065eb4d577443",
+            "createdAt": "2026-10-10T08:26:40.106Z",
+            "updatedAt": "2026-10-10T08:26:40.106Z",
+            "metadata": {},
+            "user_id": "user_8_run_0",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 2739
+      },
+      {
+        "run": 2,
+        "added": [
+          {
+            "id": "c506d18c-4a5b-447c-86f1-10852eca68eb",
+            "memory": "User's sister likes Thai food",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "c506d18c-4a5b-447c-86f1-10852eca68eb",
+            "memory": "User's sister likes Thai food",
+            "hash": "65087f4f5471c2089ea065eb4d577443",
+            "createdAt": "2026-10-10T08:26:42.809Z",
+            "updatedAt": "2026-10-10T08:26:42.809Z",
+            "metadata": {},
+            "user_id": "user_8_run_1",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 2697
+      },
+      {
+        "run": 3,
+        "added": [
+          {
+            "id": "17a41978-ad38-4db9-8396-7f67cf506a24",
+            "memory": "User's sister likes Thai food",
+            "metadata": {
+              "event": "ADD"
+            }
+          }
+        ],
+        "stored": [
+          {
+            "id": "17a41978-ad38-4db9-8396-7f67cf506a24",
+            "memory": "User's sister likes Thai food",
+            "hash": "65087f4f5471c2089ea065eb4d577443",
+            "createdAt": "2026-10-10T08:26:48.184Z",
+            "updatedAt": "2026-10-10T08:26:48.184Z",
+            "metadata": {},
+            "user_id": "user_8_run_2",
+            "attributedTo": "user"
+          }
+        ],
+        "latency": 5374
+      }
+    ]
+  }
+]

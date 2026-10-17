@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "label": "holdout-v2-final",
+    "engine": "v2",
+    "date": "2026-10-16T12:05:56.555Z",
+    "git": "dc6658b (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "ollama version is 0.40.4",
+    "set": "holdout",
+    "cases": 15
+  },
+  "results": [
+    {
+      "id": "ho-clean-01",
+      "category": "clean",
+      "description": "Occupation stated plainly",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is a nurse at a children's hospital",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User works at a children's hospital.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2599
+      ]
+    },
+    {
+      "id": "ho-multi-01",
+      "category": "multi_fact",
+      "description": "Three facts with casual phrasing",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is vegetarian",
+          "pass": true,
+          "evidence": [
+            "User is vegetarian."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User speaks French",
+          "pass": true,
+          "evidence": [
+            "User speaks French."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User's birthday is March 3rd",
+          "pass": true,
+          "evidence": [
+            "User's birthday is March 3rd."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "3 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is vegetarian.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User speaks French.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User's birthday is March 3rd.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        9110
+      ]
+    },
+    {
+      "id": "ho-multi-02",
+      "category": "multi_fact",
+      "description": "Tool preferences in one breath",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User uses a mechanical keyboard",
+          "pass": true,
+          "evidence": [
+            "User uses a mechanical keyboard."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User prefers a light theme",
+          "pass": true,
+          "evidence": [
+            "User prefers light theme."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "User codes in Python",
+          "pass": true,
+          "evidence": [
+            "User always codes in Python."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "3 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User uses a mechanical keyboard.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User prefers light theme.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User always codes in Python.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        8706
+      ]
+    },
+    {
+      "id": "ho-corr-01",
+      "category": "correction",
+      "description": "Changing a remembered number",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User has 3 cats",
+          "pass": true,
+          "evidence": [
+            "User has 3 cats."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User has 2 cats",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User has 3 cats.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        3903
+      ]
+    },
+    {
+      "id": "ho-corr-02",
+      "category": "correction",
+      "description": "Quitting a habit",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User quit smoking",
+          "pass": true,
+          "evidence": [
+            "User no longer smokes cigarettes."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User smokes cigarettes",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User smokes cigarettes",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User no longer smokes cigarettes.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4179
+      ]
+    },
+    {
+      "id": "ho-time-01",
+      "category": "change_over_time",
+      "description": "New employer",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User works at a startup",
+          "pass": true,
+          "evidence": [
+            "User works at a startup now."
+          ]
+        },
+        {
+          "kind": "not_active",
+          "fact": "User works at a bank",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User works at a bank",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User works at a startup now.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        4058
+      ]
+    },
+    {
+      "id": "ho-implicit-01",
+      "category": "implicit_reference",
+      "description": "One-word answer to a question",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is an architect",
+          "pass": true,
+          "evidence": [
+            "User works as an architect."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User works as an architect.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2305
+      ]
+    },
+    {
+      "id": "ho-implicit-02",
+      "category": "implicit_reference",
+      "description": "\"She\" refers to a person named earlier in the chat",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User has a daughter named Maya",
+          "pass": true,
+          "evidence": [
+            "User's daughter Maya has started school.",
+            "User's daughter Maya loves dinosaurs."
+          ]
+        },
+        {
+          "kind": "stored",
+          "fact": "Maya loves dinosaurs",
+          "pass": true,
+          "evidence": [
+            "User's daughter Maya loves dinosaurs."
+          ]
+        },
+        {
+          "kind": "not_stored",
+          "fact": "She's obsessed with dinosaurs (unresolved)",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's daughter Maya has started school.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User's daughter Maya loves dinosaurs.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2259,
+        4001
+      ]
+    },
+    {
+      "id": "ho-noise-01",
+      "category": "noise",
+      "description": "Venting about the day",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "Train was late / forgot umbrella",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1419
+      ]
+    },
+    {
+      "id": "ho-noise-02",
+      "category": "noise",
+      "description": "Asking for a recommendation",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants a sci-fi book",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1286
+      ]
+    },
+    {
+      "id": "ho-noise-03",
+      "category": "noise",
+      "description": "Someone else's preference",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User likes standing desks",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 0 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1214
+      ]
+    },
+    {
+      "id": "ho-refine-01",
+      "category": "refinement",
+      "description": "Adding detail to a hobby",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User plays jazz piano",
+          "pass": true,
+          "evidence": [
+            "User plays jazz piano, mostly at a bar on Fridays."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User plays jazz piano, mostly at a bar on Fridays.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        8576
+      ]
+    },
+    {
+      "id": "ho-state-01",
+      "category": "state_expiry",
+      "description": "Short trip with an end",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User is at a conference in Berlin",
+          "pass": true,
+          "evidence": [
+            "User is at a conference in Berlin."
+          ]
+        },
+        {
+          "kind": "expires",
+          "fact": "Berlin trip is temporary",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is at a conference in Berlin.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        3143
+      ]
+    },
+    {
+      "id": "ho-retrieval-01",
+      "category": "retrieval_relevance",
+      "description": "Pick the right memory out of several",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "max_active",
+          "fact": "at most 5 active memories",
+          "pass": true,
+          "evidence": [
+            "5 active"
+          ]
+        },
+        {
+          "kind": "retrieve",
+          "query": "which football team do i support?",
+          "fact": "User supports Arsenal",
+          "pass": true,
+          "evidence": [
+            "User supports Arsenal"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "which football team do i support?",
+          "fact": "User has a peanut allergy",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "which football team do i support?",
+          "fact": "User drives a Volvo",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User has a peanut allergy",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User drives a Volvo",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User supports Arsenal",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User lives in Leeds",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User is learning Japanese",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "which football team do i support?",
+          "retrieved": [
+            "User supports Arsenal"
+          ]
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        2394
+      ]
+    },
+    {
+      "id": "ho-retrieval-02",
+      "category": "retrieval_relevance",
+      "description": "General knowledge question retrieves nothing",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "max_active",
+          "fact": "at most 3 active memories",
+          "pass": true,
+          "evidence": [
+            "3 active"
+          ]
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "how far is the moon from earth?",
+          "fact": "User is a nurse",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "how far is the moon from earth?",
+          "fact": "User has two cats",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_retrieve",
+          "query": "how far is the moon from earth?",
+          "fact": "User lives in Leeds",
+          "pass": true,
+          "evidence": []
+        }
+      ],
+      "memories": [
+        {
+          "content": "User is a nurse",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User has two cats",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User lives in Leeds",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [
+        {
+          "query": "how far is the moon from earth?",
+          "retrieved": []
+        }
+      ],
+      "pipelineErrors": [],
+      "turnLatenciesMs": [
+        1383
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "embedding": {
+    "dimensions": 768
+  },
+  "contradiction": [
+    {
+      "a": "User loves blue",
+      "b": "User loves green",
+      "label": "color change",
+      "result": null,
+      "error": null
+    },
+    {
+      "a": "User likes cats",
+      "b": "User likes dogs",
+      "label": "different pets",
+      "result": true,
+      "error": null
+    },
+    {
+      "a": "User likes pizza",
+      "b": "User is a software engineer",
+      "label": "unrelated facts",
+      "result": false,
+      "error": null
+    }
+  ],
+  "extraction": [
+    {
+      "id": "A",
+      "category": "simple_fact",
+      "input": "I love pizza.",
+      "context": null,
+      "expectedBehavior": "Extract personal preference for pizza",
+      "candidates": [
+        {
+          "type": "semantic",
+          "content": "pizza",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 4736,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "B",
+      "category": "multi_fact",
+      "input": "I'm a software engineer, I live in Boston, and I love hiking.",
+      "context": null,
+      "expectedBehavior": "Extract all three facts (engineer, Boston, hiking)",
+      "candidates": [
+        {
+          "type": "entity",
+          "content": "software engineer",
+          "confidence_score": 0.8,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3290,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "C",
+      "category": "typos",
+      "input": "i luv bannana nd appl",
+      "context": null,
+      "expectedBehavior": "Recover intended preference without inventing facts",
+      "candidates": [],
+      "error": null,
+      "latencyMs": 4080,
+      "verdict": "NO_EXTRACTION"
+    },
+    {
+      "id": "D",
+      "category": "multi_fact_refinement",
+      "input": "I like cars, mostly Bugatti and Porsche, especially for racing.",
+      "context": null,
+      "expectedBehavior": "Preserve broad interest and specific detail",
+      "candidates": [
+        {
+          "type": "entity",
+          "content": "Bugatti",
+          "confidence_score": 0.83,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3874,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "E",
+      "category": "self_correction",
+      "input": "I prefer Toyota -- actually, no, I meant Honda.",
+      "context": null,
+      "expectedBehavior": "Do not retain Toyota as active preference",
+      "candidates": [
+        {
+          "type": "state",
+          "content": "Automotive preferences",
+          "confidence_score": 0.9,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3442,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "F",
+      "category": "multi_turn_correction",
+      "input": "Actually, my favorite color is green now.",
+      "context": "Prior: blue. NOT available to extractor.",
+      "expectedBehavior": "Extract green. Context-awareness impossible without prior turns.",
+      "candidates": [
+        {
+          "type": "semantic",
+          "content": "preference",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3448,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "G",
+      "category": "short_contextual",
+      "input": "Seattle.",
+      "context": "Assistant asked \"Where do you live?\" NOT available.",
+      "expectedBehavior": "Cannot extract without conversation context",
+      "candidates": [
+        {
+          "type": "entity",
+          "content": "Seattle",
+          "confidence_score": 0.95,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 10528,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "H",
+      "category": "pronoun_resolution",
+      "input": "I don't like them anymore.",
+      "context": "Prior: apples. NOT available.",
+      "expectedBehavior": "Cannot resolve \"them\" without context",
+      "candidates": [
+        {
+          "type": "state",
+          "content": "I do not like them anymore",
+          "confidence_score": 0.8,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3336,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "I",
+      "category": "repetition",
+      "input": "Bananas are my favorite.",
+      "context": null,
+      "expectedBehavior": "Extract banana preference",
+      "candidates": [
+        {
+          "type": "entity",
+          "content": "bananas",
+          "confidence_score": 0.8,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 4174,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "J",
+      "category": "temporary_sentiment",
+      "input": "I'm exhausted today and never want to look at this class again.",
+      "context": null,
+      "expectedBehavior": "Do NOT extract as durable preference",
+      "candidates": [],
+      "error": null,
+      "latencyMs": 4572,
+      "verdict": "NO_EXTRACTION"
+    },
+    {
+      "id": "K",
+      "category": "hypothetical",
+      "input": "If I moved to Japan, I'd probably learn Japanese.",
+      "context": null,
+      "expectedBehavior": "Do NOT treat as established fact",
+      "candidates": [
+        {
+          "type": "state",
+          "content": "move to Japan => learn Japanese",
+          "confidence_score": 0.7,
+          "explicitness_score": 3
+        }
+      ],
+      "error": null,
+      "latencyMs": 4189,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "L",
+      "category": "third_party",
+      "input": "My sister told me she likes Thai food.",
+      "context": null,
+      "expectedBehavior": "Do NOT store sister preference as user preference",
+      "candidates": [
+        {
+          "type": "entity",
+          "content": "sister",
+          "confidence_score": 1,
+          "explicitness_score": 1
+        }
+      ],
+      "error": null,
+      "latencyMs": 3436,
+      "verdict": "EXTRACTED"
+    },
+    {
+      "id": "M",
+      "category": "refinement",
+      "input": "Mostly Bugatti and Porsche.",
+      "context": "Prior: \"I enjoy racing.\" NOT available.",
+      "expectedBehavior": "Without context, may extract brands but cannot link to racing",
+      "candidates": [],
+      "error": null,
+      "latencyMs": 2346,
+      "verdict": "NO_EXTRACTION"
+    }
+  ]
+}

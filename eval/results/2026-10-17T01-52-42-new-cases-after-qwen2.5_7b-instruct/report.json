@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "label": "new-cases-after",
+    "engine": "v2",
+    "date": "2026-10-17T01:52:42.673Z",
+    "git": "922986d (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "ollama version is 0.40.5",
+    "set": "dev",
+    "cases": 3
+  },
+  "results": [
+    {
+      "id": "conv-name-change-01",
+      "category": "conversation",
+      "description": "A different name when one is already known",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User teaches chemistry",
+          "pass": true,
+          "evidence": [
+            "User teaches chemistry."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "2 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's name is Priya.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User's name is Meera.",
+          "status": "active",
+          "valid_until": null
+        },
+        {
+          "content": "User teaches chemistry.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "hi there, my name is Meera and I teach chemistry",
+          "lines": [
+            "\"User's name is Meera.\" -> supersede as fact (New fact provides the correct name.)",
+            "\"User teaches chemistry.\" -> add as fact (New fact about user's profession.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        63695
+      ]
+    },
+    {
+      "id": "conv-assistant-task-01",
+      "category": "conversation",
+      "description": "Asking for help with a task is not a fact about the user",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants help with a getaway",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User wants a top 3 list",
+          "pass": false,
+          "evidence": [
+            "User no longer prefers places with lakes."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User prefers places with lakes.",
+          "status": "superseded",
+          "valid_until": null
+        },
+        {
+          "content": "User no longer prefers places with lakes.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "can u help me sort out a weekend getaway somewhere close by",
+          "lines": [
+            "nothing extracted"
+          ]
+        },
+        {
+          "turn": "idk somewhere with lakes. gimme your top 3",
+          "lines": [
+            "\"User prefers places with lakes.\" -> add as fact (No related memory exists yet.)"
+          ]
+        },
+        {
+          "turn": "nah forget that, what about a beach",
+          "lines": [
+            "\"User no longer prefers places with lakes.\" -> supersede as preference (User explicitly stated a preference for beaches instead of lakes.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3787,
+        9011,
+        18835
+      ]
+    },
+    {
+      "id": "conv-typo-fix-01",
+      "category": "conversation",
+      "description": "Obvious typos are corrected in the stored memory",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's favorite drink is a strawberry smoothie",
+          "pass": true,
+          "evidence": [
+            "User's favorite drink is a strawberry smoothie."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's favorite drink is a strawberry smoothie.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [],
+      "decisions": [
+        {
+          "turn": "my fav drink is a strawbery smoothy",
+          "lines": [
+            "\"User's favorite drink is a strawberry smoothie.\" -> add as fact (No related memory exists yet.)"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        8792
+      ]
+    }
+  ]
+}

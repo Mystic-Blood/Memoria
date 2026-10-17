@@ -1,0 +1,53 @@
+{
+  "name": "memoria",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A chat assistant whose long-term memory you can watch, inspect and correct.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "db:push": "node --env-file=.env.local scripts/supabase.mjs db push",
+    "db:status": "node --env-file=.env.local scripts/supabase.mjs migration list",
+    "eval": "tsx --env-file=.env.local eval/run.ts",
+    "race": "tsx --env-file=.env.local eval/model-race.ts",
+    "sweep": "tsx --env-file=.env.local eval/retrieval-sweep.ts",
+    "e2e": "playwright test",
+    "reindex": "tsx --env-file=.env.local scripts/reindex.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^4.0.82",
+    "@ai-sdk/openai": "^4.0.78",
+    "@ai-sdk/react": "^4.0.121",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.2",
+    "ai": "^7.0.118",
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "postcss": "^8.5.30",
+    "supabase": "^2.121.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  }
+}

@@ -1,0 +1,1196 @@
+{
+  "meta": {
+    "date": "2026-10-16T11:54:44.373Z",
+    "git": "b16c101",
+    "ollama": "ollama version is 0.40.4",
+    "simulatedToday": "2026-10-16",
+    "models": [
+      "qwen2.5:7b-instruct"
+    ]
+  },
+  "runs": [
+    {
+      "modelId": "qwen2.5:7b-instruct",
+      "calls": [
+        {
+          "caseId": "clean-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1209,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is allergic to peanuts.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "clean-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 1340,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's favorite color is blue.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "clean-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 1365,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's dog is named Rusty.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "corr-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1460,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's favorite color is green.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "corr-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 518,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "corr-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 1425,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's brother is 26.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "corr-04",
+          "turn": 0,
+          "ok": true,
+          "ms": 1248,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User drives a Toyota.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "corr-05",
+          "turn": 0,
+          "ok": true,
+          "ms": 1720,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User no longer works at Microsoft.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-16"
+            }
+          ]
+        },
+        {
+          "caseId": "time-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1296,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User moved to Chicago.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "time-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 2120,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User graduated.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User works as a data scientist at Amazon.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "time-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 2094,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User switched to iPhone on 2026-10-15.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "implicit-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1271,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User currently lives in Seattle.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "implicit-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 1385,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is working on a project called Phoenix.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "implicit-02",
+          "turn": 1,
+          "ok": true,
+          "ms": 1740,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "Project Phoenix is a new database migration tool.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "implicit-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 1348,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User owns a golden retriever.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "long-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 8587,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User woke up late today.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            },
+            {
+              "content": "User spilled coffee on their shirt today.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            },
+            {
+              "content": "User missed the bus today.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            },
+            {
+              "content": "User decided they are allergic to dairy today.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            },
+            {
+              "content": "User got tested for dairy allergy yesterday.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            },
+            {
+              "content": "User had to walk in the rain today.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-17"
+            }
+          ]
+        },
+        {
+          "caseId": "long-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 1358,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User prefers Vercel for personal projects.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "long-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 1629,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's sister's name is Emily.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "multi-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 2735,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is a software engineer.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User lives in Boston.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User loves hiking.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "multi-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 2255,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's wife is Sarah.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User has 2 kids.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "multi-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 2871,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User prefers dark mode.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User uses vim instead of emacs.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User uses tabs instead of spaces.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "multi-04",
+          "turn": 0,
+          "ok": true,
+          "ms": 2708,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is working on project alpha.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "Project alpha has a deadline on 2026-10-31.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "Project alpha uses React.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "noise-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 483,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "noise-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 489,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "noise-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 483,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "noise-04",
+          "turn": 0,
+          "ok": true,
+          "ms": 553,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "refine-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1399,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User only likes black coffee.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "refine-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 1359,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is working on Project Alpha.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "refine-03",
+          "turn": 0,
+          "ok": true,
+          "ms": 1659,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User only goes to the gym on Mondays if it's raining.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "retrieval-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 452,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "retrieval-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 464,
+          "attempts": 1,
+          "extracted": []
+        },
+        {
+          "caseId": "state-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 2536,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is visiting Tokyo until 2026-10-20.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-20"
+            }
+          ]
+        },
+        {
+          "caseId": "state-02",
+          "turn": 0,
+          "ok": true,
+          "ms": 2015,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User is super sick with the flu this week.",
+              "kind": "temporary",
+              "expiresAt": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 0,
+          "ok": true,
+          "ms": 1309,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User's name is Jack.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 1,
+          "ok": true,
+          "ms": 2142,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User likes mango smoothies.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User likes strawberry smoothies.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 2,
+          "ok": true,
+          "ms": 3273,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User likes mango smoothies.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User likes strawberry smoothies.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User does not like combining banana, mango, and strawberry in a smoothie.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 3,
+          "ok": true,
+          "ms": 2521,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User owns a mansion in Saudi Arabia.",
+              "kind": "fact",
+              "expiresAt": null
+            },
+            {
+              "content": "User has a private jet worth 5 million dollars.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 4,
+          "ok": true,
+          "ms": 1680,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User has been to 21 different countries.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "turn": 5,
+          "ok": true,
+          "ms": 1483,
+          "attempts": 1,
+          "extracted": [
+            {
+              "content": "User hates strawberries.",
+              "kind": "fact",
+              "expiresAt": null
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "caseId": "clean-01",
+          "kind": "stored",
+          "fact": "User is allergic to peanuts",
+          "pass": true,
+          "evidence": [
+            "User is allergic to peanuts."
+          ]
+        },
+        {
+          "caseId": "clean-02",
+          "kind": "stored",
+          "fact": "User's favorite color is blue",
+          "pass": true,
+          "evidence": [
+            "User's favorite color is blue."
+          ]
+        },
+        {
+          "caseId": "clean-03",
+          "kind": "stored",
+          "fact": "User has a dog named Rusty",
+          "pass": true,
+          "evidence": [
+            "User's dog is named Rusty."
+          ]
+        },
+        {
+          "caseId": "clean-03",
+          "kind": "not_stored",
+          "fact": "He's a good boi (without saying who)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-01",
+          "kind": "stored",
+          "fact": "User's favorite color is green",
+          "pass": true,
+          "evidence": [
+            "User's favorite color is green."
+          ]
+        },
+        {
+          "caseId": "corr-01",
+          "kind": "no_stale",
+          "fact": "User's favorite color is blue",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-02",
+          "kind": "stored",
+          "fact": "User hates sushi",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-02",
+          "kind": "not_stored",
+          "fact": "User had a bad experience (no subject)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-02",
+          "kind": "no_stale",
+          "fact": "User loves eating sushi",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-03",
+          "kind": "stored",
+          "fact": "User's brother is 26 years old",
+          "pass": true,
+          "evidence": [
+            "User's brother is 26."
+          ]
+        },
+        {
+          "caseId": "corr-03",
+          "kind": "no_stale",
+          "fact": "User's brother is 25 years old",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-04",
+          "kind": "stored",
+          "fact": "User drives a Toyota",
+          "pass": true,
+          "evidence": [
+            "User drives a Toyota."
+          ]
+        },
+        {
+          "caseId": "corr-04",
+          "kind": "no_stale",
+          "fact": "User drives a Honda",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "corr-05",
+          "kind": "stored",
+          "fact": "User works at Microsoft",
+          "pass": true,
+          "evidence": [
+            "User no longer works at Microsoft."
+          ]
+        },
+        {
+          "caseId": "corr-05",
+          "kind": "no_stale",
+          "fact": "User works at Google",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "time-01",
+          "kind": "stored",
+          "fact": "User lives in Chicago",
+          "pass": true,
+          "evidence": [
+            "User moved to Chicago."
+          ]
+        },
+        {
+          "caseId": "time-01",
+          "kind": "no_stale",
+          "fact": "User lives in New York",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "time-02",
+          "kind": "stored",
+          "fact": "User graduated from MIT",
+          "pass": true,
+          "evidence": [
+            "User graduated."
+          ]
+        },
+        {
+          "caseId": "time-02",
+          "kind": "stored",
+          "fact": "User works as a data scientist at Amazon",
+          "pass": true,
+          "evidence": [
+            "User works as a data scientist at Amazon."
+          ]
+        },
+        {
+          "caseId": "time-02",
+          "kind": "no_stale",
+          "fact": "User is a student at MIT",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "time-03",
+          "kind": "stored",
+          "fact": "User uses an iPhone",
+          "pass": true,
+          "evidence": [
+            "User switched to iPhone on 2026-10-15."
+          ]
+        },
+        {
+          "caseId": "time-03",
+          "kind": "no_stale",
+          "fact": "User uses an Android phone",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "implicit-01",
+          "kind": "stored",
+          "fact": "User lives in Seattle",
+          "pass": true,
+          "evidence": [
+            "User currently lives in Seattle."
+          ]
+        },
+        {
+          "caseId": "implicit-02",
+          "kind": "stored",
+          "fact": "Project Phoenix is a database migration tool",
+          "pass": true,
+          "evidence": [
+            "Project Phoenix is a new database migration tool."
+          ]
+        },
+        {
+          "caseId": "implicit-03",
+          "kind": "stored",
+          "fact": "User's dog Rover is a golden retriever",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "caseId": "implicit-03",
+          "kind": "not_stored",
+          "fact": "He is a golden retriever (unresolved pronoun)",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "long-01",
+          "kind": "stored",
+          "fact": "User is allergic to dairy",
+          "pass": true,
+          "evidence": [
+            "User decided they are allergic to dairy today.",
+            "User got tested for dairy allergy yesterday."
+          ]
+        },
+        {
+          "caseId": "long-01",
+          "kind": "not_stored",
+          "fact": "User spilled coffee",
+          "pass": false,
+          "evidence": [
+            "User spilled coffee on their shirt today."
+          ]
+        },
+        {
+          "caseId": "long-01",
+          "kind": "not_stored",
+          "fact": "User missed the bus",
+          "pass": false,
+          "evidence": [
+            "User missed the bus today."
+          ]
+        },
+        {
+          "caseId": "long-01",
+          "kind": "not_stored",
+          "fact": "User walked in the rain",
+          "pass": false,
+          "evidence": [
+            "User had to walk in the rain today."
+          ]
+        },
+        {
+          "caseId": "long-02",
+          "kind": "stored",
+          "fact": "User always uses Vercel for personal projects",
+          "pass": true,
+          "evidence": [
+            "User prefers Vercel for personal projects."
+          ]
+        },
+        {
+          "caseId": "long-02",
+          "kind": "not_stored",
+          "fact": "AWS is overwhelming",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "long-02",
+          "kind": "not_stored",
+          "fact": "GCP is okay",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "long-03",
+          "kind": "stored",
+          "fact": "User has a sister named Emily",
+          "pass": true,
+          "evidence": [
+            "User's sister's name is Emily."
+          ]
+        },
+        {
+          "caseId": "long-03",
+          "kind": "not_stored",
+          "fact": "They might do thanksgiving at Emily's place",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "multi-01",
+          "kind": "stored",
+          "fact": "User is a software engineer",
+          "pass": true,
+          "evidence": [
+            "User is a software engineer."
+          ]
+        },
+        {
+          "caseId": "multi-01",
+          "kind": "stored",
+          "fact": "User lives in Boston",
+          "pass": true,
+          "evidence": [
+            "User lives in Boston."
+          ]
+        },
+        {
+          "caseId": "multi-01",
+          "kind": "stored",
+          "fact": "User loves hiking",
+          "pass": true,
+          "evidence": [
+            "User loves hiking."
+          ]
+        },
+        {
+          "caseId": "multi-02",
+          "kind": "stored",
+          "fact": "User's wife is named Sarah",
+          "pass": true,
+          "evidence": [
+            "User's wife is Sarah."
+          ]
+        },
+        {
+          "caseId": "multi-02",
+          "kind": "stored",
+          "fact": "User has 2 kids",
+          "pass": true,
+          "evidence": [
+            "User has 2 kids."
+          ]
+        },
+        {
+          "caseId": "multi-03",
+          "kind": "stored",
+          "fact": "User prefers dark mode",
+          "pass": true,
+          "evidence": [
+            "User prefers dark mode."
+          ]
+        },
+        {
+          "caseId": "multi-03",
+          "kind": "stored",
+          "fact": "User prefers vim over emacs",
+          "pass": true,
+          "evidence": [
+            "User uses vim instead of emacs."
+          ]
+        },
+        {
+          "caseId": "multi-03",
+          "kind": "stored",
+          "fact": "User prefers tabs over spaces",
+          "pass": true,
+          "evidence": [
+            "User uses tabs instead of spaces."
+          ]
+        },
+        {
+          "caseId": "multi-04",
+          "kind": "stored",
+          "fact": "User is working on Project Alpha",
+          "pass": true,
+          "evidence": [
+            "User is working on project alpha.",
+            "Project alpha has a deadline on 2026-10-31.",
+            "Project alpha uses React."
+          ]
+        },
+        {
+          "caseId": "multi-04",
+          "kind": "stored",
+          "fact": "Project Alpha deadline is Nov 1st",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "caseId": "multi-04",
+          "kind": "stored",
+          "fact": "Project Alpha uses React",
+          "pass": true,
+          "evidence": [
+            "Project alpha uses React."
+          ]
+        },
+        {
+          "caseId": "noise-01",
+          "kind": "not_stored",
+          "fact": "User is tired",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-01",
+          "kind": "not_stored",
+          "fact": "User says hello",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-01",
+          "kind": "noise",
+          "fact": "nothing extracted",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-02",
+          "kind": "not_stored",
+          "fact": "User wants to know the weather",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-02",
+          "kind": "noise",
+          "fact": "nothing extracted",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-03",
+          "kind": "not_stored",
+          "fact": "User would buy a boat",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-03",
+          "kind": "noise",
+          "fact": "nothing extracted",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "noise-04",
+          "kind": "not_stored",
+          "fact": "User (or John) is moving to Paris",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "refine-01",
+          "kind": "stored",
+          "fact": "User only likes black coffee with no sugar",
+          "pass": true,
+          "evidence": [
+            "User only likes black coffee."
+          ]
+        },
+        {
+          "caseId": "refine-02",
+          "kind": "stored",
+          "fact": "Project Alpha is a social media app",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "caseId": "refine-03",
+          "kind": "stored",
+          "fact": "User goes to the gym on Mondays only if it rains",
+          "pass": true,
+          "evidence": [
+            "User only goes to the gym on Mondays if it's raining."
+          ]
+        },
+        {
+          "caseId": "retrieval-01",
+          "kind": "not_stored",
+          "fact": "User asks about their pet",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "retrieval-02",
+          "kind": "not_stored",
+          "fact": "User wants to know the capital of France",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "caseId": "state-01",
+          "kind": "stored",
+          "fact": "User is visiting Tokyo",
+          "pass": true,
+          "evidence": [
+            "User is visiting Tokyo until 2026-10-20."
+          ]
+        },
+        {
+          "caseId": "state-01",
+          "kind": "expires",
+          "fact": "Tokyo visit ends next Friday",
+          "pass": true,
+          "evidence": [
+            "User is visiting Tokyo until 2026-10-20. (until 2026-10-20)"
+          ]
+        },
+        {
+          "caseId": "state-02",
+          "kind": "stored",
+          "fact": "User is sick with the flu this week",
+          "pass": true,
+          "evidence": [
+            "User is super sick with the flu this week."
+          ]
+        },
+        {
+          "caseId": "state-02",
+          "kind": "expires",
+          "fact": "Flu is temporary",
+          "pass": true,
+          "evidence": [
+            "User is super sick with the flu this week. (until 2026-10-23)"
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User's name is Jack",
+          "pass": true,
+          "evidence": [
+            "User's name is Jack."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User loves bananas",
+          "pass": true,
+          "evidence": [
+            "User does not like combining banana, mango, and strawberry in a smoothie."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User likes mango smoothies",
+          "pass": true,
+          "evidence": [
+            "User likes mango smoothies.",
+            "User likes mango smoothies.",
+            "User does not like combining banana, mango, and strawberry in a smoothie."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User owns a mansion in Saudi Arabia",
+          "pass": true,
+          "evidence": [
+            "User owns a mansion in Saudi Arabia."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User owns a private jet worth $5 million",
+          "pass": true,
+          "evidence": [
+            "User has a private jet worth 5 million dollars."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User has visited 21 countries",
+          "pass": true,
+          "evidence": [
+            "User has been to 21 different countries."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "stored",
+          "fact": "User hates strawberries",
+          "pass": true,
+          "evidence": [
+            "User does not like combining banana, mango, and strawberry in a smoothie.",
+            "User hates strawberries."
+          ]
+        },
+        {
+          "caseId": "jack-01",
+          "kind": "no_stale",
+          "fact": "User likes strawberries",
+          "pass": true,
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "label": "new-cases-before",
+    "engine": "v2",
+    "date": "2026-10-17T01:43:26.768Z",
+    "git": "922986d (uncommitted changes)",
+    "models": {
+      "backend": "ollama",
+      "chat": "qwen2.5:7b-instruct",
+      "extraction": "qwen2.5:7b-instruct",
+      "reconcile": "qwen2.5:7b-instruct",
+      "embedding": "nomic-embed-text"
+    },
+    "ollama": "Warning: could not connect to a running Ollama instance\nWarning: client version is 0.40.4",
+    "set": "dev",
+    "cases": 3
+  },
+  "results": [
+    {
+      "id": "conv-name-change-01",
+      "category": "conversation",
+      "description": "A different name when one is already known",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User teaches chemistry",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "not_active",
+          "fact": "Two names at once",
+          "pass": false,
+          "evidence": [
+            "User's name is Priya."
+          ]
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 2 active memories",
+          "pass": true,
+          "evidence": [
+            "1 active"
+          ]
+        }
+      ],
+      "memories": [
+        {
+          "content": "User's name is Priya.",
+          "status": "active",
+          "valid_until": null
+        }
+      ],
+      "retrievals": [],
+      "pipelineErrors": [
+        "[pipeline failed] extraction unavailable: model server unreachable"
+      ],
+      "decisions": [
+        {
+          "turn": "hi there, my name is Meera and I teach chemistry",
+          "lines": [
+            "failed: extraction unavailable: model server unreachable"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        7369
+      ]
+    },
+    {
+      "id": "conv-assistant-task-01",
+      "category": "conversation",
+      "description": "Asking for help with a task is not a fact about the user",
+      "passed": true,
+      "checks": [
+        {
+          "kind": "not_stored",
+          "fact": "User wants help planning a getaway",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "not_stored",
+          "fact": "User wants the top 3",
+          "pass": true,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [
+        "[pipeline failed] extraction unavailable: model server unreachable",
+        "[pipeline failed] extraction unavailable: model server unreachable",
+        "[pipeline failed] extraction unavailable: model server unreachable"
+      ],
+      "decisions": [
+        {
+          "turn": "can u help me plan a weekend getaway somewhere close by",
+          "lines": [
+            "failed: extraction unavailable: model server unreachable"
+          ]
+        },
+        {
+          "turn": "idk show me something with lakes. give me the top 3",
+          "lines": [
+            "failed: extraction unavailable: model server unreachable"
+          ]
+        },
+        {
+          "turn": "nah forget that, what about a beach instead",
+          "lines": [
+            "failed: extraction unavailable: model server unreachable"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3179,
+        2971,
+        3003
+      ]
+    },
+    {
+      "id": "conv-typo-fix-01",
+      "category": "conversation",
+      "description": "Obvious typos are corrected in the stored memory",
+      "passed": false,
+      "checks": [
+        {
+          "kind": "stored",
+          "fact": "User's favorite drink is a strawberry smoothie",
+          "pass": false,
+          "evidence": []
+        },
+        {
+          "kind": "max_active",
+          "fact": "at most 1 active memories",
+          "pass": true,
+          "evidence": [
+            "0 active"
+          ]
+        }
+      ],
+      "memories": [],
+      "retrievals": [],
+      "pipelineErrors": [
+        "[pipeline failed] extraction unavailable: model server unreachable"
+      ],
+      "decisions": [
+        {
+          "turn": "my fav drink is a strawbery smoothy",
+          "lines": [
+            "failed: extraction unavailable: model server unreachable"
+          ]
+        }
+      ],
+      "turnLatenciesMs": [
+        3444
+      ]
+    }
+  ]
+}
